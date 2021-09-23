@@ -2,9 +2,7 @@ package com.kasun.tasksapp.controller;
 
 import com.kasun.tasksapp.domain.Task;
 import com.kasun.tasksapp.service.TaskService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * *@author KasunBalasooriya
@@ -24,5 +22,10 @@ public class TaskController {
     @GetMapping(value = {"","/"})
     public Iterable<Task> list(){
         return this.taskService.list();
+    }
+    
+    @PostMapping("/save")
+    public Task saveTask(@RequestBody Task task){
+        return this.taskService.save(task);
     }
 }
