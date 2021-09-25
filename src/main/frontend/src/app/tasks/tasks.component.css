@@ -1,0 +1,11 @@
+#appTasksAdd{
+    margin-bottom:5px;
+}
+
+#tasksPanel{
+    margin-top: 50px;
+}
+
+.panel-default {
+    border-color: #dddddd !important;
+}
