@@ -3,7 +3,7 @@
         <div class="task-checkbox">
             <input type="checkbox"
                    class="list-child"
-                   (change)="onTaskChange($event,task)"
+                   (change)="onTaskChange({event : $event, task : task})"
                    [checked]="task.completed">
             <span ngClass="{{task.completed ? 'name completed' : 'name'}}"> {{task.name }} </span>
             <span class="badge {{ getDueDateLabel(task) }} float-end">{{task.dueDate}}</span>
