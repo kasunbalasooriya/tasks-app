@@ -21,9 +21,9 @@ export class TasksListComponent implements OnInit {
               },
               (error) => console.log(error)
           );
-      // this.taskService.onTaskAdded.subscribe(
-      //     (task: Task) => this.tasks.push(task)
-      // );
+      this.taskService.onTaskAdded.subscribe(
+          (task: Task) => this.tasks.push(task)
+      );
   }
 
     onTaskChange({event, task}: { event: any, task: Task }) {

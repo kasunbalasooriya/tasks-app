@@ -1,5 +1,5 @@
 import {HttpClient} from '@angular/common/http';
-import {Injectable} from "@angular/core";
+import {EventEmitter, Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {Task} from "./task.model";
 
@@ -7,6 +7,7 @@ import {Task} from "./task.model";
 @Injectable()
 export class TaskService{
 
+    onTaskAdded = new EventEmitter<Task>();
 
     constructor(private http: HttpClient) {
     }
@@ -18,6 +19,10 @@ export class TaskService{
 
     saveTask(task:Task, checked:boolean): Observable<any>{
         task.completed=checked;
+        return this.http.post('/api/tasks/save',task);
+    }
+
+    addTask(task:Task): Observable<any>{
         return this.http.post('/api/tasks/save',task);
     }
 
