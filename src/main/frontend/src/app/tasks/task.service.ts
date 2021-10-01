@@ -22,6 +22,7 @@ export class TaskService{
         return this.http.post('/api/tasks/save',task);
     }
 
+    //Save task can be used implementing as a separate method for adding
     addTask(task:Task): Observable<any>{
         return this.http.post('/api/tasks/save',task);
     }
